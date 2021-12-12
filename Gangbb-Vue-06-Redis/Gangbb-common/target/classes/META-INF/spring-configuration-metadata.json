@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "gangbb",
+      "type": "com.gangbb.common.config.GangbbConfig",
+      "sourceType": "com.gangbb.common.config.GangbbConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "gangbb.copyright-year",
+      "type": "java.lang.String",
+      "description": "版权年份",
+      "sourceType": "com.gangbb.common.config.GangbbConfig"
+    },
+    {
+      "name": "gangbb.demo-enabled",
+      "type": "java.lang.Boolean",
+      "description": "实例演示开关",
+      "sourceType": "com.gangbb.common.config.GangbbConfig",
+      "defaultValue": false
+    },
+    {
+      "name": "gangbb.name",
+      "type": "java.lang.String",
+      "description": "项目名称",
+      "sourceType": "com.gangbb.common.config.GangbbConfig"
+    },
+    {
+      "name": "gangbb.version",
+      "type": "java.lang.String",
+      "description": "版本",
+      "sourceType": "com.gangbb.common.config.GangbbConfig"
+    }
+  ],
+  "hints": []
+}

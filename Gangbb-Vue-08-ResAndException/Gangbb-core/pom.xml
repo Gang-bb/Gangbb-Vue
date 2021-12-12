@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Gangbb-Vue</artifactId>
+        <groupId>com.gangbb</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Gangbb-core</artifactId>
+
+    <description>
+        core框架核心模块
+    </description>
+
+    <dependencies>
+
+        <!-- 阿里数据库连接池 begin-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 阿里数据库连接池 end-->
+
+
+        <!-- SpringBoot Web容器 begin-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--以下是排除的组件-->
+            <exclusions>
+                <!--排除默认自带的log组件-->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- SpringBoot Web容器 end-->
+
+        <!-- SpringBoot 拦截器  begin-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!-- SpringBoot 拦截器  end-->
+
+        <!--log4j2日志相关  begin-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <!--log4j2日志相关  end-->
+
+        <!--项目common通用工具类 begin-->
+        <dependency>
+            <groupId>com.gangbb</groupId>
+            <artifactId>Gangbb-common</artifactId>
+        </dependency>
+        <!--项目common通用工具类 end-->
+
+    </dependencies>
+
+
+</project>

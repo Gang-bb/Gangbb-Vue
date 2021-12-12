@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gangbb.core.mapper.SysRoleMapper">
+	<resultMap id="BaseResultMap" type="com.gangbb.core.model.entity.SysRole">
+            <result column="id" property="id" />
+	        <result column="role_name" property="roleName" />
+	        <result column="role_key" property="roleKey" />
+	        <result column="role_sort" property="roleSort" />
+	        <result column="data_scope" property="dataScope" />
+	        <result column="menu_check_strictly" property="menuCheckStrictly" />
+	        <result column="dept_check_strictly" property="deptCheckStrictly" />
+	        <result column="status" property="status" />
+	        <result column="del_flag" property="delFlag" />
+	        <result column="creator" property="creator" />
+	        <result column="create_time" property="createTime" />
+	        <result column="reviser" property="reviser" />
+	        <result column="update_time" property="updateTime" />
+	        <result column="remark" property="remark" />
+		</resultMap>
+
+    <!-- 表字段 -->
+    <sql id="baseColumns">
+         t.id
+        , t.role_name
+        , t.role_key
+        , t.role_sort
+        , t.data_scope
+        , t.menu_check_strictly
+        , t.dept_check_strictly
+        , t.status
+        , t.del_flag
+        , t.creator
+        , t.create_time
+        , t.reviser
+        , t.update_time
+        , t.remark
+        </sql>
+
+    <!--若依提供-->
+    <sql id="selectRoleVo">
+	    select distinct r.id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.menu_check_strictly, r.dept_check_strictly,
+            r.status, r.del_flag, r.create_time, r.remark,r.creator,r.reviser,r.update_time
+        from sys_role r
+	        left join sys_user_role ur on ur.role_id = r.role_id
+	        left join sys_user u on u.user_id = ur.user_id
+	        left join sys_dept d on u.dept_id = d.dept_id
+    </sql>
+
+
+    <!--若依提供-->
+    <select id="selectRolePermissionByUserId" parameterType="Long" resultMap="BaseResultMap">
+    <include refid="selectRoleVo"/>
+    WHERE r.del_flag = '0' and ur.user_id = #{userId}
+    </select>
+
+
+
+</mapper>

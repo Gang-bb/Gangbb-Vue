@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    name: gangbb_datasource
+    url: jdbc:mysql://127.0.0.1:3306/gangbb?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  devtools:
+    # 热部署生效
+    add-properties: true
+    # 设置重启的目录
+    restart:
+      additional-paths: src/main/java
+
+mybatis:
+  configuration:
+    # 实体类驼峰命名转成数据库中的下划线命名
+    map-underscore-to-camel-case: true
+    # 指定 MyBatis 所用日志的具体实现
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    # 全局映射器启用缓存
+    cache-enabled: true
+    # 允许 JDBC 支持自动生成主键
+    use-generated-keys: true
+    # 配置默认的执行器
+    default-executor-type: reuse
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  # 扫描实体类路径（搜索指定包别名）
+  type-aliases-package: com.gangbb.**.entity

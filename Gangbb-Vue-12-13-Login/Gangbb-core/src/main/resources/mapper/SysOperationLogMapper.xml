@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gangbb.core.mapper.SysOperationLogMapper">
+    <cache type="com.gangbb.common.utils.redis.RedisCache" blocking="false"
+           flushInterval="0" readOnly="true" size="1024" eviction="FIFO"/>
+
+
+	<insert id="insertOperationLog" parameterType="SysOperationLog" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_operation_log(title, business_type, class_method, request_method, operator_type, operation_name, operation_url, operation_ip, operation_location, operation_param, json_result, operation_status, error_msg, operation_time, createTime)
+        values (#{title}, #{businessType}, #{classMethod}, #{requestMethod}, #{operatorType}, #{operationName}, #{operationUrl}, #{operationIp}, #{operationLocation}, #{operationParam}, #{jsonResult}, #{operationStatus}, #{errorMsg}, #{operationTime}, sysdate())
+	</insert>
+
+	<select id="selectAll" resultType="com.gangbb.core.model.entity.SysOperationLog" useCache="true">
+	    select * from sys_operation_log
+    </select>
+
+
+
+</mapper>

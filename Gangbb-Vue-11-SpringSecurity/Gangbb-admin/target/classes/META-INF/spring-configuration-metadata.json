@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "error",
+      "type": "com.gangbb.test.model.properties.ErrorCodeMessage",
+      "sourceType": "com.gangbb.test.model.properties.ErrorCodeMessage"
+    }
+  ],
+  "properties": [
+    {
+      "name": "error.code-message",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.gangbb.test.model.properties.ErrorCodeMessage"
+    }
+  ],
+  "hints": []
+}

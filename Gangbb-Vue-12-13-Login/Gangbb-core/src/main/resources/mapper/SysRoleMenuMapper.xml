@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gangbb.core.mapper.SysRoleMenuMapper">
+	<resultMap id="BaseResultMap" type="com.gangbb.core.model.entity.SysRoleMenu">
+            <result column="role_id" property="roleId" />
+	        <result column="menu_id" property="menuId" />
+		</resultMap>  
+
+
+</mapper>

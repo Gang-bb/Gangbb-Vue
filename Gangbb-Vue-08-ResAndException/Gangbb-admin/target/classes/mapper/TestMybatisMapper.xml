@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gangbb.test.model.dao.TestMybatisMapper">
+
+    <resultMap type="com.gangbb.test.model.entity.TestMybatis" id="TestMybatisMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TestMybatisMap">
+        select
+          id, name, gender
+        from `test-mybatis`
+        where id = #{id}
+    </select>
+</mapper>
